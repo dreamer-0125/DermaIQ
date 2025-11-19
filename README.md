@@ -16,39 +16,6 @@ DermaIQ is a comprehensive, AI-powered wound care platform that simplifies and e
 ## 📁 Repository Structure
 
 ```
-├── backend/                    # Python FastAPI backend with AI/ML capabilities
-│   ├── app/                    # Core application code
-│   │   ├── __init__.py         # Package initialization
-│   │   ├── main.py             # FastAPI application entry point with CORS and middleware
-│   │   ├── config.py           # Environment configuration and Supabase client setup
-│   │   ├── models/             # ML models and data models
-│   │   │   ├── __init__.py     # Models package initialization
-│   │   │   ├── yolo_wound.py   # YOLO model for wound segmentation and measurement
-│   │   │   └── wound_models/   # Additional wound analysis models directory
-│   │   ├── routers/            # API endpoint modules
-│   │   │   ├── __init__.py     # Routers package initialization
-│   │   │   ├── analysis.py     # Wound analysis endpoints (segmentation, diagnosis)
-│   │   │   ├── treatment.py    # Treatment plan generation and VBC analysis
-│   │   │   ├── recommendations.py # Doctor and specialist recommendations
-│   │   │   ├── database.py     # Database CRUD operations
-│   │   │   └── payments.py     # Stripe payment processing and donations
-│   │   ├── utils/              # Utility modules
-│   │   │   ├── __init__.py     # Utils package initialization
-│   │   │   ├── helpers.py      # Image processing, logging utilities
-│   │   │   ├── auth.py         # Authentication and JWT handling
-│   │   │   ├── gemini_ai.py    # Google Gemini AI integration
-│   │   │   └── vbc_analysis.py # Value-Based Care analysis
-│   │   └── resources/          # Static resource files
-│   │       ├── treatment_plan.json    # Treatment plan templates
-│   │       ├── doctor.json            # Doctor contact database
-│   │       └── vbc_completion.json    # VBC completion guidelines
-│   ├── database/               # Database schema and migrations
-│   │   └── doctor_recommendations.sql # Doctor recommendations table schema
-│   ├── tests/                  # Comprehensive test suite (pytest)
-│   ├── requirements.txt        # Python dependencies (FastAPI, Ultralytics, Supabase, etc.)
-│   ├── pytest.ini             # Pytest configuration
-│   ├── Dockerfile             # Multi-stage Docker build for production
-│   └── README.md              # Backend-specific documentation
 ├── frontend/                   # React/TypeScript frontend with modern UI
 │   ├── src/                    # Source code
 │   │   ├── components/         # Reusable UI components
@@ -117,30 +84,7 @@ This will start:
 
 ### Option 2: Local Development
 
-#### Backend Setup
-
-```bash
-cd backend
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure environment
-cp .env.example .env
-# Edit .env with your configuration (SUPABASE_URL, SUPABASE_KEY, GEMINI_API_KEY)
-
-# Run the backend
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
-
 #### Frontend Setup
-
-```bash
-cd frontend
 
 # Install dependencies
 npm install
@@ -307,23 +251,6 @@ LOG_LEVEL=INFO
 
 ## 🧪 Testing
 
-### Backend Testing
-```bash
-cd backend
-
-# Run all tests
-python run_tests.py
-
-# Direct pytest
-pytest tests/test_api.py -v
-
-# Run with coverage
-pytest --cov=app --cov-report=html
-
-# Run with verbose output
-pytest -v --tb=short
-```
-
 ### Frontend Testing
 ```bash
 cd frontend
@@ -359,21 +286,6 @@ docker-compose up --scale backend=3 --scale frontend=2
 - **Staging**: Separate configuration for testing environments
 
 ### Manual Deployment
-
-#### Backend Deployment
-```bash
-cd backend
-
-# Build production image
-docker build -t dermaiq-backend:latest .
-
-# Run with environment variables
-docker run -p 8000:8000 --env-file .env dermaiq-backend:latest
-```
-
-#### Frontend Deployment
-```bash
-cd frontend
 
 # Build for production
 npm run build
