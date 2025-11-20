@@ -165,39 +165,39 @@ const Header = () => {
               <div className="relative group">
                 <Link
                   to="/"
-                  className={`flex items-center px-4 py-3 rounded-full transition-all duration-200 font-medium ${isActive('/')
+                  className={`flex items-center px-4 py-3 rounded-full transition-all duration-300 font-medium ${isActive('/')
                     ? 'bg-white text-blue-600 shadow-md'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-white/50'
                     }`}
                 >
                   {isActive('/') && <Home className="mr-2 h-4 w-4" />}
                   Home
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                 </Link>
                 <div className="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="py-2">
-                    <a href="/#hero" onClick={(e) => handleAnchorClick(e, 'hero')} className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
+                    <a href="/#hero"  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                       <Crown className="w-4 h-4 mr-3 text-blue-500" />
                       <div>
                         <div className="font-medium">Hero Section</div>
                         <div className="text-xs text-gray-500">Co-design your wound care future</div>
                       </div>
                     </a>
-                    <a href="/#features" onClick={(e) => handleAnchorClick(e, 'features')} className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
+                    <a href="/#features"  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                       <Sparkles className="w-4 h-4 mr-3 text-teal-500" />
                       <div>
                         <div className="font-medium">Features</div>
                         <div className="text-xs text-gray-500">Platform capabilities</div>
                       </div>
                     </a>
-                    <a href="/#how-it-works" onClick={(e) => handleAnchorClick(e, 'how-it-works')} className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
+                    <a href="/#how-it-works"  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                       <Zap className="w-4 h-4 mr-3 text-green-500" />
                       <div>
                         <div className="font-medium">How It Works</div>
                         <div className="text-xs text-gray-500">4-step process</div>
                       </div>
                     </a>
-                    <a href="/#benefits" onClick={(e) => handleAnchorClick(e, 'benefits')} className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
+                    <a href="/#benefits"  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                       <Star className="w-4 h-4 mr-3 text-purple-500" />
                       <div>
                         <div className="font-medium">Benefits</div>
@@ -221,7 +221,7 @@ const Header = () => {
                   Solutions
                   <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                 </Link>
-                                  <div className="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="absolute left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="py-2">
                     <Link to="/solutions/wound-measurement" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-300 transform hover:translate-x-2">
                       <Camera className="w-4 h-4 mr-3 text-teal-500" />
