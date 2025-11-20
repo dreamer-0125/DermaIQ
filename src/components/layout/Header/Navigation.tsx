@@ -233,7 +233,7 @@ const Navigation: React.FC = () => {
     }>;
   }> = ({ label, icon: Icon, description, color, items }) => (
     <div className="relative group/nested">
-      <div className="flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200 cursor-pointer">
+      <div className="flex items-center justify-between px-4 py-4 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200 cursor-pointer">
         <div className="flex items-center">
           <Icon className={`w-4 h-4 mr-3 ${color}`} />
           <div>
@@ -243,7 +243,7 @@ const Navigation: React.FC = () => {
         </div>
         <ChevronDown className="h-4 w-4 transform group-hover/nested:rotate-180 transition-transform" />
       </div>
-      <div className="absolute left-full top-0 ml-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 z-50">
+      <div className="absolute left-full top-0 ml-0.4 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-300 z-50">
         <div className="py-2">
           {items.map((item, index) => (
             <Link

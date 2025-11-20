@@ -281,7 +281,7 @@ const Header = () => {
                         </div>
                         <ChevronDown className="h-4 w-4 transform group-hover/core-services:rotate-180 transition-transform" />
                       </div>
-                      <div className="absolute left-full top-0 ml-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/core-services:opacity-100 group-hover/core-services:visible transition-all duration-300 z-50">
+                      <div className="absolute left-full top-0 ml-0.4 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/core-services:opacity-100 group-hover/core-services:visible transition-all duration-300 z-50">
                         <div className="py-2">
                           <Link to="/services/ai-wound-measurement" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                             <Camera className="w-4 h-4 mr-3 text-blue-500" />
@@ -332,7 +332,7 @@ const Header = () => {
                         </div>
                         <ChevronDown className="h-4 w-4 transform group-hover/care-navigation:rotate-180 transition-transform" />
                       </div>
-                      <div className="absolute left-full top-0 ml-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/care-navigation:opacity-100 group-hover/care-navigation:visible transition-all duration-300 z-50">
+                      <div className="absolute left-full top-0 ml-0.4 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/care-navigation:opacity-100 group-hover/care-navigation:visible transition-all duration-300 z-50">
                         <div className="py-2">
                           <Link to="/services/care-coordination" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                             <Network className="w-4 h-4 mr-3 text-teal-500" />
@@ -362,7 +362,7 @@ const Header = () => {
                         </div>
                         <ChevronDown className="h-4 w-4 transform group-hover/delivery-channels:rotate-180 transition-transform" />
                       </div>
-                      <div className="absolute left-full top-0 ml-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/delivery-channels:opacity-100 group-hover/delivery-channels:visible transition-all duration-300 z-50">
+                      <div className="absolute left-full top-0 ml-0.4 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/delivery-channels:opacity-100 group-hover/delivery-channels:visible transition-all duration-300 z-50">
                         <div className="py-2">
                           <Link to="/services/onsite-clinic" className="flex items-center px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-teal-50 hover:text-blue-600 transition-all duration-200">
                             <Building2 className="w-4 h-4 mr-3 text-purple-500" />
