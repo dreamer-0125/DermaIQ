@@ -140,7 +140,7 @@ const Services = () => {
         {/* Service Categories */}
         <div className="space-y-16">
           {serviceCategories.map((category, categoryIndex) => (
-            <div key={category.id} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:scale-105 transition-all duration-200 animate-flash" style={{ animationDelay: `${categoryIndex * 200}ms` }}>
+            <div id={category.id} key={category.id} className="scroll-offset bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:scale-105 transition-all duration-200 animate-flash" style={{ animationDelay: `${categoryIndex * 200}ms` }}>
               <div className="mb-8">
                 <img
                   src={`https://images.unsplash.com/photo-${category.id === 'core-services' ? '1522071820081-009f0129c71c' :

@@ -27,7 +27,7 @@ const Benefits = () => {
   ];
 
   return (
-    <section id="benefits" className="bg-[#F6F6F6] py-16 sm:py-24 bg-gradient-to-br from-gray-50 to-indigo-50">
+    <section id="benefits" className="scroll-offset bg-[#F6F6F6] py-16 sm:py-24 bg-gradient-to-br from-gray-50 to-indigo-50">
       <div className="sm:w-1/2 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 sm:mb-12">
           <div className="text-[#B3B3B3] mb-2">

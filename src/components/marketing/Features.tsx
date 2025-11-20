@@ -1,7 +1,7 @@
 const Features = () => {
 
   return (
-    <section id="features" className="py-16 sm:py-20 bg-[#3681DE] relative">
+    <section id="features" className="scroll-offset py-16 sm:py-20 bg-[#3681DE] relative">
 
       <div className="hidden lg:block absolute left-0 -top-10 z-10 w-1/4">
         <img

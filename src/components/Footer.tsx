@@ -62,9 +62,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-white text-sm sm:text-base">Services</h3>
             <ul className="space-y-2 text-white">
-              <li><a href="/services#core-services" onClick={(e) => handleAnchorClick(e, 'core-services')} className="hover:text-black transition-colors text-sm">Core Services</a></li>
-              <li><a href="/services#care-navigation" onClick={(e) => handleAnchorClick(e, 'care-navigation')} className="hover:text-black transition-colors text-sm">Care Navigation</a></li>
-              <li><a href="/services#delivery-channels" onClick={(e) => handleAnchorClick(e, 'delivery-channels')} className="hover:text-black transition-colors text-sm">Delivery Channels</a></li>
+              <li><a href="/services#core-services"  className="hover:text-black transition-colors text-sm">Core Services</a></li>
+              <li><a href="/services#care-navigation"  className="hover:text-black transition-colors text-sm">Care Navigation</a></li>
+              <li><a href="/services#delivery-channels"  className="hover:text-black transition-colors text-sm">Delivery Channels</a></li>
             </ul>
           </div>
           

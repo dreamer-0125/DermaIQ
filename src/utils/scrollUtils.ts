@@ -32,3 +32,10 @@ export const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, elemen
   e.preventDefault();
   scrollToElement(elementId, offset);
 }; 
+
+// export const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+//   if(window.location.pathname === "/services") {
+//     e.preventDefault();
+//     document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
+//   }
+// };
