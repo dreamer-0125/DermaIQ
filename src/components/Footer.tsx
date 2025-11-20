@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Shield, Github } from 'lucide-react';
-import { handleAnchorClick } from '../utils/scrollUtils';
 import FaviconIcon from './ui/FaviconIcon';
 
 // Social Media Icons as SVG components

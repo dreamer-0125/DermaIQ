@@ -37,7 +37,6 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { AuthModal } from './auth/AuthModal';
-import { handleAnchorClick } from '../utils/scrollUtils';
 import FaviconIcon from './ui/FaviconIcon';
 
 const Header = () => {
@@ -499,7 +498,7 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden mobile-menu bg-white shadow-lg">
-            <div className="px-4 py-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <div className="px-4 py-6 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
               {/* Mobile Navigation Links */}
               <div className="space-y-2">
                 <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Navigation</div>

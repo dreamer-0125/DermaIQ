@@ -52,7 +52,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
   return (
     <div className="lg:hidden bg-white shadow-lg">
-      <div className="px-4 py-6 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
+      <div className="px-4 py-4 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
         {/* Navigation Links */}
         <div className="space-y-2">
           <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">

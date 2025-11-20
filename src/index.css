@@ -340,7 +340,7 @@
   }
 
   .mobile-menu-content {
-    @apply fixed top-16 left-0 right-0 bg-white shadow-lg z-50 lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto;
+    @apply fixed top-16 left-0 right-0 bg-white shadow-lg z-50 lg:hidden max-h-[calc(100vh-6rem)] overflow-y-auto;
   }
 
   /* Touch-friendly interactive elements */
