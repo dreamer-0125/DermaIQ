@@ -9,7 +9,7 @@ import { http, HttpResponse } from 'msw'
 // Mock API responses following backend patterns
 export const handlers = [
   // Health check endpoint
-  http.get('http://localhost:8000/health', () => {
+  http.get('http://192.168.130.30:8000/health', () => {
     return HttpResponse.json({
       status: 'healthy',
       version: '1.0.0',
@@ -20,7 +20,7 @@ export const handlers = [
   }),
 
   // Root endpoint
-  http.get('http://localhost:8000/', () => {
+  http.get('http://192.168.130.30:8000/', () => {
     return HttpResponse.json({
       message: 'DermaIQ Backend API',
       version: '1.0.0',
@@ -30,7 +30,7 @@ export const handlers = [
   }),
 
   // Treatment plan endpoint
-  http.get('http://localhost:8000/api/treatment/plan/:woundType', ({ params }) => {
+  http.get('http://192.168.130.30:8000/api/treatment/plan/:woundType', ({ params }) => {
     const { woundType } = params
     const isInfected = woundType === 'infected'
     
@@ -70,7 +70,7 @@ export const handlers = [
   }),
 
   // Doctor recommendations endpoint
-  http.get('http://localhost:8000/api/recommendations/doctor_contact/:state', ({ params }) => {
+  http.get('http://192.168.130.30:8000/api/recommendations/doctor_contact/:state', ({ params }) => {
     const { state } = params
     
     return HttpResponse.json({
@@ -85,7 +85,7 @@ export const handlers = [
   }),
 
   // Complete analysis endpoint (simulated)
-  http.post('http://localhost:8000/api/analysis/complete_analysis', async () => {
+  http.post('http://192.168.130.30:8000/api/analysis/complete_analysis', async () => {
     // Simulate processing time
     await new Promise(resolve => setTimeout(resolve, 100))
     
@@ -105,7 +105,7 @@ export const handlers = [
   }),
 
   // Model status endpoint
-  http.get('http://localhost:8000/api/analysis/model_status', () => {
+  http.get('http://192.168.130.30:8000/api/analysis/model_status', () => {
     return HttpResponse.json({
       data: {
         models: {
@@ -117,7 +117,7 @@ export const handlers = [
   }),
 
   // Performance stats endpoint
-  http.get('http://localhost:8000/api/analysis/performance_stats', () => {
+  http.get('http://192.168.130.30:8000/api/analysis/performance_stats', () => {
     return HttpResponse.json({
       data: {
         average_processing_time: 2.5,
@@ -128,7 +128,7 @@ export const handlers = [
   }),
 
   // Treatment plans endpoint
-  http.get('http://localhost:8000/api/treatment/plans', () => {
+  http.get('http://192.168.130.30:8000/api/treatment/plans', () => {
     return HttpResponse.json({
       data: {
         infected: {
@@ -144,7 +144,7 @@ export const handlers = [
   }),
 
   // VBC completion endpoint
-  http.post('http://localhost:8000/api/treatment/vbc_completion', async () => {
+  http.post('http://192.168.130.30:8000/api/treatment/vbc_completion', async () => {
     await new Promise(resolve => setTimeout(resolve, 50))
     return HttpResponse.json({
       data: {
@@ -155,7 +155,7 @@ export const handlers = [
   }),
 
   // Generate custom treatment plan endpoint
-  http.post('http://localhost:8000/api/treatment/generate_plan', async () => {
+  http.post('http://192.168.130.30:8000/api/treatment/generate_plan', async () => {
     await new Promise(resolve => setTimeout(resolve, 50))
     return HttpResponse.json({
       data: {
@@ -168,7 +168,7 @@ export const handlers = [
   }),
 
   // Specialists endpoint
-  http.get('http://localhost:8000/api/recommendations/specialists', () => {
+  http.get('http://192.168.130.30:8000/api/recommendations/specialists', () => {
     return HttpResponse.json({
       data: [
         {
@@ -185,7 +185,7 @@ export const handlers = [
   }),
 
   // Recommend specialist endpoint
-  http.post('http://localhost:8000/api/recommendations/recommend_specialist', async () => {
+  http.post('http://192.168.130.30:8000/api/recommendations/recommend_specialist', async () => {
     await new Promise(resolve => setTimeout(resolve, 50))
     return HttpResponse.json({
       data: {
@@ -201,7 +201,7 @@ export const handlers = [
   }),
 
   // Doctors endpoint
-  http.get('http://localhost:8000/api/recommendations/doctors', () => {
+  http.get('http://192.168.130.30:8000/api/recommendations/doctors', () => {
     return HttpResponse.json({
       data: [
         {
@@ -218,7 +218,7 @@ export const handlers = [
   }),
 
   // States endpoint
-  http.get('http://localhost:8000/api/recommendations/states', () => {
+  http.get('http://192.168.130.30:8000/api/recommendations/states', () => {
     return HttpResponse.json({
       data: {
         states: ['California', 'New York', 'Texas', 'Florida', 'Illinois']
@@ -227,7 +227,7 @@ export const handlers = [
   }),
 
   // Specializations endpoint
-  http.get('http://localhost:8000/api/recommendations/specializations', () => {
+  http.get('http://192.168.130.30:8000/api/recommendations/specializations', () => {
     return HttpResponse.json({
       data: {
         specializations: ['Wound Care', 'Dermatology', 'General Practice', 'Emergency Medicine']
@@ -236,18 +236,18 @@ export const handlers = [
   }),
 
   // Error simulation endpoints
-  http.get('http://localhost:8000/api/test/timeout', () => {
+  http.get('http://192.168.130.30:8000/api/test/timeout', () => {
     return new Promise(() => {}) // Never resolves to simulate timeout
   }),
 
-  http.get('http://localhost:8000/api/test/server-error', () => {
+  http.get('http://192.168.130.30:8000/api/test/server-error', () => {
     return HttpResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
     )
   }),
 
-  http.get('http://localhost:8000/api/test/network-error', () => {
+  http.get('http://192.168.130.30:8000/api/test/network-error', () => {
     return HttpResponse.error()
   }),
 ]

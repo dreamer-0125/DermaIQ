@@ -79,8 +79,8 @@ docker-compose up --build
 
 This will start:
 - 🌐 **Frontend**: `http://localhost:3001`
-- 🔧 **Backend API**: `http://localhost:8000`
-- 📚 **API Documentation**: `http://localhost:8000/docs`
+- 🔧 **Backend API**: `http://192.168.130.30:8000`
+- 📚 **API Documentation**: `http://192.168.130.30:8000/docs`
 
 ### Option 2: Local Development
 
@@ -175,11 +175,11 @@ The frontend will be available at `http://localhost:3001`
 ## 🔌 API Documentation
 
 ### Base URL
-- **Development**: `http://localhost:8000`
+- **Development**: `http://192.168.130.30:8000`
 - **Production**: `https://your-domain.com`
 
 ### Interactive Documentation
-Visit `http://localhost:8000/docs` for interactive Swagger UI documentation.
+Visit `http://192.168.130.30:8000/docs` for interactive Swagger UI documentation.
 
 ### Core Endpoints
 
@@ -246,8 +246,8 @@ LOG_LEVEL=INFO
 
 2. **Verify Setup**:
    - Start the backend server
-   - Visit `http://localhost:8000/health` to verify the API is running
-   - Check `http://localhost:8000/api/analysis/model_status` to verify AI services are available
+   - Visit `http://192.168.130.30:8000/health` to verify the API is running
+   - Check `http://192.168.130.30:8000/api/analysis/model_status` to verify AI services are available
 
 ## 🧪 Testing
 

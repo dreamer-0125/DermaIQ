@@ -140,7 +140,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const login = async (email: string, password: string, redirectTo?: string) => {
-    // console.log('AuthContext: Starting login process for email:', email);
+    console.log('AuthContext: Starting login process for email:', email);
     
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -148,7 +148,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
 
     if (error) {
-      // console.error('AuthContext: Login error:', error);
+      //console.error('AuthContext: Login error:', error);
       throw error;
     }
     

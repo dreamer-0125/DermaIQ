@@ -12,7 +12,7 @@ export const API_CONFIG = {
   // Backend API configuration
   BACKEND: {
     // Development and production URLs
-    DEVELOPMENT: 'http://127.0.0.1:8000', // Use localhost for development
+    DEVELOPMENT: 'http://192.168.130.30:8000',//127.0.0.1:8000', // Use localhost for development
     PRODUCTION: 'https://mcp.dermaiq.org',
     
     // Get current base URL based on environment
@@ -27,9 +27,9 @@ export const API_CONFIG = {
       // For development, use the same host as the frontend but with port 8000
       const currentHost = window.location.hostname;
       
-      // If we're running on localhost or 127.0.0.1, use localhost:8000
+      // If we're running on localhost or 127.0.0.1, use 192.168.130.30:8000
       if (currentHost === 'localhost' || currentHost === '127.0.0.1') {
-        return 'http://127.0.0.1:8000';
+        return 'http://192.168.130.30:8000';
       }
       
       // If we're running on the external IP, use the same IP with port 8000

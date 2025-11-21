@@ -10,7 +10,7 @@ export default defineConfig({
     strictPort: true, // Don't try other ports if 3001 is busy
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: 'http://192.168.130.30:8000',  //127.0.0.1:8000',
         changeOrigin: true,
         secure: false,
       },

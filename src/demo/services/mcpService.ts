@@ -245,8 +245,8 @@ class EnhancedMCPService {
         // Try the same host as frontend first
         `http://${currentHost}:8000/health`,
         // Then try localhost variants
-        'http://localhost:8000/health',
-        'http://127.0.0.1:8000/health',
+        'http://192.168.130.30:8000/health',
+        'http://192.168.130.30:8000/health', //127.0.0.1
         // Then try the external IP if not already tried
         ...(currentHost !== '138.201.55.18' ? ['http://138.201.55.18:8000/health'] : []),
         // Finally try production
@@ -482,7 +482,7 @@ class EnhancedMCPService {
           if (currentHost === '138.201.55.18') {
             // console.error('Running on external IP. Check if backend is accessible at http://138.201.55.18:8000');
           } else if (currentHost === 'localhost' || currentHost === '127.0.0.1') {
-            // console.error('Running on localhost. Check if backend is accessible at http://localhost:8000');
+            // console.error('Running on localhost. Check if backend is accessible at http://192.168.130.30:8000');
           }
         }
       }

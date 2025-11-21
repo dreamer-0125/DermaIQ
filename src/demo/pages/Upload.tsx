@@ -610,8 +610,8 @@ const Upload: React.FC = () => {
       // Test multiple endpoints to determine connectivity
       // Test 127.0.0.1 first as it's most reliable (direct IPv4)
       const testUrls = [
-        'http://127.0.0.1:8000/health',
-        'http://localhost:8000/health',
+        'http://192.168.130.30:8000/health', //127.0.0.1
+        'http://192.168.130.30:8000/health',
         `${API_CONFIG.BACKEND.getBaseUrl()}/health`
       ];
       
