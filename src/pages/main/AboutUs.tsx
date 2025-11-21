@@ -192,8 +192,8 @@ const AboutUs = () => {
             {team.map((member, index) => (
               <div key={index} className="text-center hover:scale-105 transition-transform duration-300 cursor-pointer animate-slideInLeft flex-shrink-0" ref={addToRefs}>
                 <img
-                  src={`https://images.unsplash.com/photo-${index === 0 ? '1612349317150-e3d4b83c1d4f' :
-                    index === 1 ? '1582750433449-648ed127bb54' :
+                  src={`https://${index === 0 ? 'plus.unsplash.com/premium_photo-1661580632282-c56b1bfc0489?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' :
+                    index === 1 ? 'images.unsplash.com/photo-1612531386530-97286d97c2d2?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' :
                       index === 2 ? '1559839734-2b71ea197ec2' :
                         '1612198188377-9c1960cd6c85'
                     }?auto=format&fit=crop&w=300&q=80`}

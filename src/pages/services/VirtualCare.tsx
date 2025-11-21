@@ -109,7 +109,7 @@ const VirtualCare = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 animate-zoomIn" ref={addToRefs}>
           <div>
             <img
-              src="https://images.unsplash.com/photo-1612198188377-9c1960cd6c85?auto=format&fit=crop&w=800&q=80"
+              src="https://images.unsplash.com/photo-1663153204592-24da1124205f?q=80&w=696&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Virtual healthcare consultation and telemedicine technology"
               className="w-full h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
             />

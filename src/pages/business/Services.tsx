@@ -143,9 +143,9 @@ const Services = () => {
             <div id={category.id} key={category.id} className="scroll-offset bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:scale-105 transition-all duration-200 animate-flash" style={{ animationDelay: `${categoryIndex * 200}ms` }}>
               <div className="mb-8">
                 <img
-                  src={`https://images.unsplash.com/photo-${category.id === 'core-services' ? '1522071820081-009f0129c71c' :
-                    category.id === 'care-navigation' ? '1522071820081-009f0129c71c' :
-                      '1612349317150-e3d4b83c1d4f'
+                  src={`https://${category.id === 'core-services' ? 'images.unsplash.com/photo-1522071820081-009f0129c71c' :
+                    category.id === 'care-navigation' ? 'brundagegroup.com/wp-content/uploads/2023/09/What-is-Utilization-Management-and-Why-Its-Important-in-Healthcare-.jpg' :
+                      'images.unsplash.com/photo-1705264895993-c544cf74a0c7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                     }?auto=format&fit=crop&w=800&q=80`}
                   alt={`${category.title} healthcare services`}
                   className="w-full h-64 object-cover rounded-xl shadow-lg hover:scale-105 transition-all duration-200"

@@ -143,7 +143,7 @@ const CareCoordination = () => {
 
           <div>
             <img
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+              src="https://plus.unsplash.com/premium_photo-1751969547647-61a76ca3a61f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Healthcare team coordination and collaborative care management"
               className="w-full h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
             />
