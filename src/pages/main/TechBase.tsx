@@ -66,7 +66,7 @@ const TechBase = () => {
 
       {/* Navigation */}
       <div className="bg-white border-b animate-slideInLeft" ref={addToRefs}>
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="w-7xl mx-auto px-4 py-4">
           <div className="flex flex-wrap justify-center space-x-2">
             {[
               { id: 'overview', label: 'Overview', icon: Brain },
@@ -79,7 +79,7 @@ const TechBase = () => {
                 <button
                   key={section.id}
                   onClick={() => setActiveSection(section.id as any)}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-110 hover:shadow-lg ${activeSection === section.id
+                  className={`w-fit flex items-center mb-3 space-x-2 px-6 py-3 rounded-full text-sm font-medium  transition-all  duration-300 hover:scale-105 hover:shadow-lg ${activeSection === section.id
                     ? 'bg-[#3681DE] text-white shadow-xl'
                     : 'text-gray-600 hover:text-[#3681DE] hover:bg-[#3681DE]/5 border border-gray-200 hover:border-[#3681DE]/30'
                     }`}
