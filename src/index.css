@@ -36,6 +36,7 @@
   .scroll-offset {
     scroll-margin-top: 100px; /* Adjust based on fixed header height */
   }
+
   /* Improve touch targets on mobile */
   @media (max-width: 768px) {
     button, a, [role="button"] {
