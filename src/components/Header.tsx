@@ -499,8 +499,40 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mobile-menu bg-white shadow-lg">
             <div className="px-4 py-6 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
+
+              {/* Mobile Auth Section */}
+              <div>
+                {currentUser ? (
+                  <div className="space-y-3">
+                    <div className="px-3 py-2">
+                      <div className="text-sm text-gray-500">Signed in as</div>
+                      <div className="font-medium text-gray-900">{userProfile ? `${userProfile.first_name} ${userProfile.last_name}` : currentUser.email}</div>
+                    </div>
+                    <Link to="/demo" className="block px-3 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium text-center transition-all duration-200">
+                      Go to Demo Dashboard
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      disabled={isLoggingOut}
+                      className="block w-full px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      {isLoggingOut ? 'Signing Out...' : 'Sign Out'}
+                    </button>
+                  </div>
+                ) : (
+                  <div className="px-3">
+                    <button
+                      onClick={handleSignUp}
+                      className="flex flex-row items-center bg-[#3681DE] rounded-full text-white px-6 py-3 font-semibold hover:bg-[#2B6BC7] transition-all duration-200 shadow-lg hover:shadow-xl"
+                    >
+                      Schedule Demo
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </button>
+                  </div>
+                )}
+              </div>
               {/* Mobile Navigation Links */}
-              <div className="space-y-2">
+              <div className="space-y-2 border-t border-gray-200 pt-4">
                 <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Navigation</div>
 
                 <Link to="/" className="flex items-center px-3 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg font-medium transition-colors">
@@ -604,37 +636,7 @@ const Header = () => {
                 </Link>
               </div>
 
-              {/* Mobile Auth Section */}
-              <div className="border-t border-gray-200 pt-4">
-                {currentUser ? (
-                  <div className="space-y-3">
-                    <div className="px-3 py-2">
-                      <div className="text-sm text-gray-500">Signed in as</div>
-                      <div className="font-medium text-gray-900">{userProfile ? `${userProfile.first_name} ${userProfile.last_name}` : currentUser.email}</div>
-                    </div>
-                    <Link to="/demo" className="block px-3 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium text-center transition-all duration-200">
-                      Go to Demo Dashboard
-                    </Link>
-                    <button
-                      onClick={handleLogout}
-                      disabled={isLoggingOut}
-                      className="block w-full px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                    >
-                      {isLoggingOut ? 'Signing Out...' : 'Sign Out'}
-                    </button>
-                  </div>
-                ) : (
-                  <div className="px-3">
-                    <button
-                      onClick={handleSignUp}
-                      className="flex flex-row items-center bg-[#3681DE] rounded-full text-white px-6 py-3 font-semibold hover:bg-[#2B6BC7] transition-all duration-200 shadow-lg hover:shadow-xl"
-                    >
-                      Schedule Demo
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </button>
-                  </div>
-                )}
-              </div>
+              
             </div>
           </div>
         )}

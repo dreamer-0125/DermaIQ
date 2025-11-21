@@ -55,7 +55,45 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       <div className="px-4 py-4 space-y-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
         {/* Navigation Links */}
         <div className="space-y-2">
-          <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+          {/* Auth Section */}
+          <div>
+          {currentUser ? (
+            <div className="space-y-3">
+              <div className="px-3 py-2">
+                <div className="text-sm text-gray-500">Signed in as</div>
+                <div className="font-medium text-gray-900">
+                  {userProfile 
+                    ? `${userProfile.first_name} ${userProfile.last_name}` 
+                    : currentUser.email}
+                </div>
+              </div>
+              <Link 
+                to="/demo" 
+                onClick={onClose}
+                className="block px-3 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium text-center transition-all duration-200"
+              >
+                Go to Demo Dashboard
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="block w-full px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg font-medium transition-colors"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div className="px-3">
+              <Button
+                onClick={onScheduleDemo}
+                rightIcon={<ArrowRight className="h-4 w-4" />}
+                className="flex flex-row items-center bg-[#3681DE] rounded-full text-white px-6 py-3 font-semibold hover:bg-[#2B6BC7] transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Schedule Demo
+              </Button>
+            </div>
+          )}
+          </div>
+          <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3 border-t border-gray-200 pt-4">
             Navigation
           </div>
 
@@ -242,45 +280,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           </Link>
         </div>
 
-        {/* Auth Section */}
-        <div className="border-t border-gray-200 pt-4">
-          {currentUser ? (
-            <div className="space-y-3">
-              <div className="px-3 py-2">
-                <div className="text-sm text-gray-500">Signed in as</div>
-                <div className="font-medium text-gray-900">
-                  {userProfile 
-                    ? `${userProfile.first_name} ${userProfile.last_name}` 
-                    : currentUser.email}
-                </div>
-              </div>
-              <Link 
-                to="/demo" 
-                onClick={onClose}
-                className="block px-3 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium text-center transition-all duration-200"
-              >
-                Go to Demo Dashboard
-              </Link>
-              <button
-                onClick={handleLogout}
-                className="block w-full px-3 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg font-medium transition-colors"
-              >
-                Sign Out
-              </button>
-            </div>
-          ) : (
-            <div className="px-3">
-              <Button
-                onClick={onScheduleDemo}
-                rightIcon={<ArrowRight className="h-4 w-4" />}
-                fullWidth
-                className="bg-[#3681DE] hover:bg-[#2B6BC7] shadow-lg hover:shadow-xl"
-              >
-                Schedule Demo
-              </Button>
-            </div>
-          )}
-        </div>
+        
       </div>
     </div>
   );
