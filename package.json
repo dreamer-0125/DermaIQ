@@ -55,6 +55,7 @@
     "jsdom": "^23.0.1",
     "msw": "^2.0.8",
     "postcss": "^8.4.27",
+    "supabase": "^2.58.5",
     "tailwindcss": "^3.3.3",
     "tsx": "^4.6.0",
     "typescript": "^5.0.2",

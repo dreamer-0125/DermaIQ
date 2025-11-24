@@ -214,7 +214,7 @@ const Careers = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="flex flex-row items-center bg-[#3681DE] rounded-full text-white px-4 py-2 font-semibold hover:bg-[#2B6BC7] transition-all duration-200 shadow-lg hover:shadow-xl animate-glow" ref={addToRefs}>
+                  <button className="flex flex-row items-center mt-3 bg-[#3681DE] rounded-full text-white px-4 py-2 font-semibold hover:bg-[#2B6BC7] transition-all duration-200 shadow-lg hover:shadow-xl animate-glow" ref={addToRefs}>
                     Apply Now
                     <ArrowRight className="h-3 w-3 ml-1" />
                   </button>
