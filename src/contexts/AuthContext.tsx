@@ -86,19 +86,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       email,
       password,
       options: {
+        emailRedirectTo: redirectTo || '/demo',
         data: {
           first_name: firstName,
           last_name: lastName,
           title: title || '',
           organization: organization || '',
           phone: phone || '',
-          ...additionalData
+          ...additionalData,
         }
       }
     });
 
     if (error) {
-      // console.error('AuthContext: Signup error:', error);
+      console.error('AuthContext: Signup error:', error);
       throw error;
     }
 
@@ -107,7 +108,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // If user was created successfully, set the user state
     if (data.user) {
       setCurrentUser(data.user);
-      
+      console.log("data.user",data.user);
       // The database trigger handle_new_user() should have automatically created the profile
       // Give it a moment to complete, then fetch the profile
       try {
@@ -122,12 +123,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           } catch (error) {
             retries--;
             if (retries === 0) {
-              // console.warn('Profile fetching failed after retries, but user was created:', error);
+              console.warn('Profile fetching failed after retries, but user was created:', error);
             }
           }
         }
       } catch (error) {
-        // console.warn('Profile fetching failed, but user was created:', error);
+        console.warn('Profile fetching failed, but user was created:', error);
       }
     }
     
@@ -148,11 +149,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
 
     if (error) {
-      //console.error('AuthContext: Login error:', error);
+      console.error('AuthContext: Login error:', error);
       throw error;
     }
     
-    // console.log('AuthContext: Login successful, user:', data.user?.id);
+    console.log('AuthContext: Login successful, user:', data.user?.id);
     
     if (data.user) {
       setCurrentUser(data.user);
@@ -168,34 +169,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const logout = async () => {
-    // console.log('AuthContext: Starting logout process...');
+    console.log('AuthContext: Starting logout process...');
     
     try {
       // Clear Supabase session
       const { error } = await supabase.auth.signOut();
       if (error) {
-        // console.error('AuthContext: Supabase logout error:', error);
+        console.error('AuthContext: Supabase logout error:', error);
         throw error;
       }
-      
       // Clear mock authentication (development)
-      clearAuth();
-      
+      // clearAuth();
       // Clear all state
       setCurrentUser(null);
       setUserProfile(null);
-      
-      // console.log('AuthContext: Logout successful, redirecting to home page...');
       
       // Always redirect to main website (home page) after logout
       // This ensures users are taken away from demo/protected areas
       navigate('/', { replace: true });
       
     } catch (error) {
-      // console.error('AuthContext: Logout error:', error);
+      console.error('AuthContext: Logout error:', error);
       
       // Even if there's an error, clear local state and redirect
-      clearAuth();
+      // clearAuth();
       setCurrentUser(null);
       setUserProfile(null);
       navigate('/', { replace: true });
@@ -265,19 +262,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchUserProfile = async (user: User) => {
     // Prevent duplicate requests for the same user or if already fetching
     if (fetchingProfile) {
-      // console.log('User profile fetch already in progress for user ID:', user.id);
+      console.log('User profile fetch already in progress for user ID:', user.id);
       return;
     }
     
     // Only skip if we already have the profile for this exact user
     if (userProfile && userProfile.id === user.id) {
-      // console.log('User profile already loaded for user ID:', user.id);
+      console.log('User profile already loaded for user ID:', user.id);
       return;
     }
     
     setFetchingProfile(true);
     try {
-      // console.log('Fetching user profile for user ID:', user.id);
+      console.log('Fetching user profile for user ID:', user.id);
       
       // Use SESSION timeout (5s) instead of OPERATION timeout (60s) for faster profile fetch
       const profilePromise = supabase
@@ -285,14 +282,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .select('*')
         .eq('id', user.id)
         .single();
-      
+      console.log('Fetching user profile for user email:', user.email);
       // Use faster SESSION timeout for profile fetch
       const timeoutPromise = new Promise<never>((_, reject) => {
         setTimeout(() => {
           reject(new Error(`Profile fetch timeout after ${TIMEOUT_CONFIG.DATABASE.SESSION / 1000} seconds`));
         }, TIMEOUT_CONFIG.DATABASE.SESSION);
       });
-      
+      console.log('step 1');
       const { data, error } = await Promise.race([
         profilePromise,
         timeoutPromise
@@ -309,29 +306,29 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         
         // If user profile doesn't exist, create it
         if (error.code === 'PGRST116' || error.message.includes('No rows found')) {
-          // console.log('User profile not found, creating new profile...');
+          console.log('User profile not found, creating new profile...');
           await createUserProfile(user);
         } else {
           // On error, set a minimal profile to prevent blocking
-          // console.warn('Profile fetch failed, using minimal profile from user metadata');
+          console.warn('Profile fetch failed, using minimal profile from user metadata');
           setMinimalProfileFromUser(user);
         }
         return;
       }
       
       if (data) {
-        // console.log('Successfully fetched user profile:', data);
+        console.log('Successfully fetched user profile:', data);
         setUserProfile(data);
         
         // Cache profile in session storage for faster subsequent loads
         try {
           sessionStorage.setItem(`profile-${user.id}`, JSON.stringify(data));
         } catch (e) {
-          // console.warn('Failed to cache profile:', e);
+          console.warn('Failed to cache profile:', e);
         }
       }
     } catch (error) {
-      // console.error('Unexpected error fetching user profile:', error);
+      console.error('Unexpected error fetching user profile:', error);
       
       // If profile fetch fails due to timeout, use cached or minimal profile
       if (error instanceof Error && error.message.includes('timeout')) {
@@ -342,12 +339,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           const cached = sessionStorage.getItem(`profile-${user.id}`);
           if (cached) {
             const cachedProfile = JSON.parse(cached);
-            // console.log('Using cached profile');
+            console.log('Using cached profile');
             setUserProfile(cachedProfile);
             return;
           }
         } catch (e) {
-          // console.warn('Failed to load cached profile:', e);
+          console.warn('Failed to load cached profile:', e);
         }
         
         // Fallback to minimal profile

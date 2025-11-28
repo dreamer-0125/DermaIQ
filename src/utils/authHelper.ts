@@ -38,7 +38,7 @@ export function getAuthToken(): string | null {
  */
 export function clearAuth(): void {
   localStorage.removeItem('auth_token');
-  // console.log('🔓 Authentication cleared');
+  console.log('🔓 Authentication cleared');
 }
 
 /**

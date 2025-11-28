@@ -24,7 +24,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: true,
     autoRefreshToken: true,
-    detectSessionInUrl: false,
+    detectSessionInUrl: true,
     storage: window.localStorage,
     storageKey: 'dermaiq-auth-token',
   },
@@ -53,7 +53,7 @@ export const testSupabaseConnection = async () => {
   }
   
   try {
-    // console.log('🔍 Testing Supabase connection...');
+    console.log('🔍 Testing Supabase connection...');
     
     // Use a simple query with timeout
     const connectionPromise = supabase.from('users').select('count').limit(1);
